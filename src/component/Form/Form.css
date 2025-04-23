@@ -1,0 +1,305 @@
+/* Creative Form Styling */
+form {
+  max-width: 730px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  border-radius: 16px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    0 2px 5px rgba(0, 0, 0, 0.05),
+    0 0 80px rgba(66, 153, 225, 0.1) inset;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative elements */
+form::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #4299e1, #667eea);
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+form::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #9f7aea, #ed64a6);
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+/* Form sections */
+form > div {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+/* Heading section with name and email */
+.heading {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Section titles */
+form::before div:first-child {
+  position: relative;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 40px;
+  background: linear-gradient(90deg, #4299e1, #667eea);
+  border-radius: 3px;
+}
+
+/* Input container styling */
+.input-container {
+  margin-bottom: 1.2rem;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.input-container:focus-within {
+  transform: translateY(-2px);
+}
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.input-container:focus-within label {
+  color: #4299e1;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #2d3748;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 
+    0 0 0 3px rgba(66, 153, 225, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+/* Main section with select and GPA */
+.Main {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+
+@media (max-width: 768px) {
+  .Main {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Bio input styling */
+textarea,
+input[type="text"][placeholder="A bit about you"] {
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+/* Checkboxes and radio buttons section */
+.Hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding: 1rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.Hobbies:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Checkbox and radio items */
+.Hobbies .input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex: 0 0 calc(50% - 1.25rem);
+}
+
+@media (max-width: 520px) {
+  .Hobbies .input-container {
+    flex: 0 0 100%;
+  }
+}
+
+/* Checkbox and radio styling */
+input[type="checkbox"],
+input[type="radio"] {
+  position: relative;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid #cbd5e0;
+  border-radius: 5px;
+  transition: all 0.2s;
+  background-color: white;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  border-color: #4299e1;
+  background-color: #4299e1;
+}
+
+input[type="checkbox"]:checked::before,
+input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"]:checked::before {
+  width: 0.5rem;
+  height: 0.25rem;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: translate(-50%, -60%) rotate(-45deg);
+}
+
+input[type="radio"]:checked::before {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Section heading for checkbox and radio groups */
+.Hobbies::before {
+  content: attr(data-group-title);
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background: linear-gradient(90deg, #4299e1, #667eea);
+  color: white;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 15px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(66, 153, 225, 0.4);
+}
+
+/* Add animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+form > div {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+form > div:nth-child(1) { animation-delay: 0.1s; }
+form > div:nth-child(2) { animation-delay: 0.2s; }
+form > div:nth-child(3) { animation-delay: 0.3s; }
+form > div:nth-child(4) { animation-delay: 0.4s; }
+form > div:nth-child(5) { animation-delay: 0.5s; }
+
+/* Add submit button styling */
+button[type="submit"] {
+  background: linear-gradient(135deg, #4299e1, #667eea);
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: block;
+  margin: 2rem auto 0;
+  box-shadow: 0 4px 10px rgba(66, 153, 225, 0.4);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(66, 153, 225, 0.5);
+}
+
+button[type="submit"]:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(66, 153, 225, 0.5);
+}
