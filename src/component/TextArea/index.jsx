@@ -1,13 +1,22 @@
-const TextArea = ({ labelName, placeHolder, setState }) => {
+const TextArea = ({
+  value,
+  labelName,
+  placeHolder,
+  onChange,
+  type,
+  name,
+  id,
+}) => {
   return (
     <>
-      <label htmlFor="name">{labelName}</label>
+      <label htmlFor={name}>{labelName}</label>
       <textarea
-        type="text"
-        name="name"
-        id=""
+        value={value}
+        type={type}
+        name={name}
+        id={id}
         placeholder={placeHolder}
-        onChange={(e) => setState(e.target.value)}
+        onChange={onChange}
       />
     </>
   );

@@ -1,12 +1,13 @@
-export function Select() {
+export function Select({ labelName, options, onChange, value, id, name }) {
   return (
     <>
-      <label htmlFor="">Level</label>
-      <select name="Level">
-        <option value="FreshMan">FreshMan</option>
-        <option value="Junior">Junior</option>
-        <option value="Middle Junior">Middle Junior</option>
-        <option value="Senior">Senior</option>
+      <label htmlFor={name}>{labelName}</label>
+      <select id={id} name={labelName} onChange={onChange} value={value}>
+        {options.map((item, index) => (
+          <option key={index} value={item}>
+            {item}
+          </option>
+        ))}
       </select>
     </>
   );
