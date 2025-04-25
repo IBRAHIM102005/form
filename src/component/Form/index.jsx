@@ -17,15 +17,30 @@ export function Form() {
   const [level, setLevel] = useState("");
   const [major, setMajor] = useState("");
   const [hobbie, setHobbies] = useState("");
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [gpaError, setGpaError] = useState(false);
 
   const hobbies = ["Paddling", "Surfing", "Running", "Biking"];
   const majors = ["Physics", "Math", "Chemistry", "Computer Science"];
   const levels = ["FreshMan", "Junior", "Middle Junior", "Senior"];
   const handleName = (e) => {
-    setName(e.target.value);
+    const value = e.target.value;
+    setName(value);
+    if (value.length < 3) {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    }
   };
   const handleEmail = (e) => {
-    setEmail(e.target.value);
+    const value = e.target.value;
+    setEmail(value);
+    if (!value.endsWith("@gmail.com")) {
+      setEmailError(true);
+    } else {
+      setEmailError(false);
+    }
   };
 
   const handleTextArea = (e) => {
@@ -33,7 +48,13 @@ export function Form() {
   };
 
   const handleGpa = (e) => {
-    setGpa(e.target.value);
+    const value = e.target.value;
+    setGpa(value);
+    if (value < 85) {
+      setGpaError(true);
+    } else {
+      setGpaError(false);
+    }
   };
   const handleLevel = (e) => {
     setLevel(e.target.value);
@@ -42,12 +63,31 @@ export function Form() {
     setMajor(e.target.value);
   };
   const handleHobbies = (e) => {
-    setMajor(e.target.value);
+    const value = e.target.value;
+    setHobbies((prev) => {
+      if (prev.includes(value)) {
+        return prev.filter((hobbie) => hobbie !== value);
+      } else {
+        return [...prev, value];
+      }
+    });
   };
-  console.log(name);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("Form Submitted with the following data:");
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Biographical Statement:", textArea);
+    console.log("GPA:", gpa);
+    console.log("Level:", level);
+    console.log("Major:", major);
+    console.log("Hobbies:", hobbie);
+  };
 
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <div className="heading">
         <Input
           value={name}
@@ -58,6 +98,9 @@ export function Form() {
           id="name"
           onChange={handleName}
         />
+        {nameError && (
+          <p className="error-message">Name 3 herfden az ola bilməz!!!</p>
+        )}
         <Input
           value={email}
           type="text"
@@ -67,6 +110,7 @@ export function Form() {
           id="surname"
           onChange={handleEmail}
         />
+        {emailError && <p className="errorMessage">Duzgun daxil edilmeyib</p>}
       </div>
       <TextArea
         value={textArea}
@@ -94,6 +138,7 @@ export function Form() {
           id="gpa"
           onChange={handleGpa}
         />
+        {gpaError && <p className="errorMessage">GPA 85-dən az ola bilməz!</p>}
       </div>
       <Checkbox array={hobbies} labelName="Hobbies" onChange={handleHobbies} />
       <Radio
